@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Impostore</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<h1>🕵️ Gioco dell'Impostore</h1>
+
+<!-- SETUP -->
+<div id="setup">
+    <h2>Impostazioni</h2>
+
+    <label>Numero giocatori:</label>
+    <input type="number" id="players" min="3" value="4" onchange="createNameInputs()"><br><br>
+
+    <div id="namesContainer">
+    <h3>👤 Giocatori</h3>
+    <div id="names"></div>
+    </div>
+
+    <label>Numero impostori:</label>
+    <input type="number" id="impostors" min="1" value="1"><br><br>
+
+    <label>Numero infiltrati:</label>
+    <input type="number" id="infiltrates" min="0" value="0"><br><br>
+
+    <h3>Categorie (max 3)</h3>
+
+    <label><input type="checkbox" value="generale"> Generale</label><br>
+    <label><input type="checkbox" value="calcio"> Calcio</label><br>
+    <label><input type="checkbox" value="cinema"> Cinema</label><br>
+    <label><input type="checkbox" value="geografia"> Geografia</label><br>
+    <label><input type="checkbox" value="altro"> Altro</label><br><br>
+
+    <button onclick="startGame()">Inizia</button>
+    <button onclick="clearNames()">🗑️ Cancella nomi</button>
+</div>
+
+<!-- GIOCO -->
+<div id="game" style="display:none;">
+    <h2 id="playerTurn"></h2>
+    <button onclick="showWord()">Mostra parola</button>
+    <p id="word"></p>
+    <button onclick="nextPlayer()">Avanti</button>
+</div>
+
+<!-- VOTAZIONE -->
+<div id="vote" style="display:none;">
+    <h2>🗳️ Votazione</h2>
+    <p>Clicca un giocatore per vedere il suo ruolo</p>
+    <div id="voteButtons"></div>
+    <button onclick="endVote()">Fine votazione</button>
+</div>
+
+<script src="giochiScript/impostore.js"></script>
+<style>
+    #namesContainer {
+    background: #2c2c54;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 250px;
+}
+
+#names input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+</style>
+</body>
+</html>
